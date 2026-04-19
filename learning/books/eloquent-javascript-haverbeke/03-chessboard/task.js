@@ -25,16 +25,28 @@ function board(boardSize) {
     const white = '#';
     const black = ' ';
     let row = '';
+    let rowCounter = 1;
+    let columnCounter = 1;
 
-    if (boardSize > 1) {
-        for (let counter = 1; counter <= boardSize; counter++) {
-            if (counter % 2 == 0) {
-                row += white;
-            } else {
-                row += black;
+    function rawDraw(even, odd) {
+        if (boardSize > 1) {
+            for (rowCounter; rowCounter <= boardSize; rowCounter++) {
+                if (rowCounter % 2 == 0) {
+                    row += even;
+                } else {
+                    row += odd;
+                }
             }
+            console.log(row);
         }
-        console.log(raw);
+    }
+
+    for (columnCounter; columnCounter <= boardSize; columnCounter++) {
+        if (columnCounter % 2 == 0) {
+            rawDraw(black, white);
+        } else {
+            rawDraw(white, black);
+        }
     }
 }
 
