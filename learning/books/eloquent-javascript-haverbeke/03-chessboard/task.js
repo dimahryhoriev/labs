@@ -24,30 +24,30 @@ let boardSize = 0;
 function board(boardSize) {
     const white = '#';
     const black = ' ';
-    let row = '';
-    let rowCounter = 1;
-    let columnCounter = 1;
+    let fullBoard = '';
 
-    function rawDraw(even, odd) {
-        if (boardSize > 1) {
-            for (rowCounter; rowCounter <= boardSize; rowCounter++) {
-                if (rowCounter % 2 == 0) {
-                    row += even;
-                } else {
-                    row += odd;
-                }
+    function rowDraw(even, odd) {
+        let row = '';
+
+        for (let rowCounter = 1; rowCounter <= boardSize; rowCounter++) {
+            if (rowCounter % 2 == 0) {
+                row += even;
+            } else {
+                row += odd;
             }
-            console.log(row);
+        }
+        fullBoard += row + '\n';
+    }
+
+    for (columnCounter = 1; columnCounter <= boardSize; columnCounter++) {
+        if (columnCounter % 2 == 0) {
+            rowDraw(black, white);
+        } else {
+            rowDraw(white, black);
         }
     }
 
-    for (columnCounter; columnCounter <= boardSize; columnCounter++) {
-        if (columnCounter % 2 == 0) {
-            rawDraw(black, white);
-        } else {
-            rawDraw(white, black);
-        }
-    }
+    console.log(fullBoard);
 }
 
-board(6)
+board(8)
