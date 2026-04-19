@@ -24,16 +24,18 @@ let boardSize = 0;
 function board(boardSize) {
     const white = '#';
     const black = ' ';
+    let row = '';
 
     if (boardSize > 1) {
         for (let counter = 1; counter <= boardSize; counter++) {
             if (counter % 2 == 0) {
-                console.log(black);
+                row += white;
             } else {
-                console.log(white);
+                row += black;
             }
         }
+        console.log(raw);
     }
 }
 
-board(3)
+board(6)
