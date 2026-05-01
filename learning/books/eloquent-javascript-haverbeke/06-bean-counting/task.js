@@ -18,7 +18,7 @@ To do this, rewrite the countBs function.
 
 */
 
-
+// Function with one parameter
 function countBs(string) {
     let numberOfBs = 0;
     let stringLength = string.length;
@@ -36,4 +36,23 @@ function countBs(string) {
     return verifyChar(stringLength);
 }
 
+// Function with two parameters
+function countChar(string, char) {
+    let numberOfChar = 0;
+    let stringLength = string.length;
+
+    function verifyChar(stringLength) {
+        let updatedLength = stringLength - 1;
+        let lastChar = string.charAt(updatedLength);
+
+        if (updatedLength < 0) return numberOfChar;
+        if (lastChar === char) numberOfChar++;
+
+        return verifyChar(updatedLength);
+    }
+
+    return verifyChar(stringLength);
+}
+
 console.log(countBs('ABABBB'));
+console.log(countChar('AFAFAFFFFF', 'F'))
